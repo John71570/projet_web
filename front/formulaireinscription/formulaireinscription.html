@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+</head>
+  <title>
+    Formulaire inscription
+  </title>
+
+<body ng-app="BlankApp">
+<boutoninscris></boutoninscris>
+<script src="/lib/angular/angular.min.js"></script>
+<script src="/module.js"></script>
+<script src="boutoninscris/boutoninscris.js"></script>
+
+<form action="/formulaireinscription/traitement" method="post">
+    <div>
+        <label for="nom">Nom :</label>
+        <input type="text" name="nom" />
+    </div>
+    <div>
+        <label for="age">Age :</label>
+        <input type="number" name="age" />
+    </div>
+    <div>
+        <label for="courriel">Courriel :</label>
+        <input type="email" name="courriel" />
+    </div>
+    <div>
+        <label for="Mot de passe">MdP :</label>
+        <input type="password" name="psw" />
+    </div>
+    <div>
+        <label for="Numero de telephone">TEL :</label>
+        <input type="text" name="tel" />
+    </div>
+        <div>
+        <label for="description">Description :</label>
+        <textarea name="description"></textarea>
+    </div>
+    
+    
+    <div class="button">
+        <button type="submit">Envoyer votre message</button>
+    </div>
+</form>
+</body>
+
+
+</html>
