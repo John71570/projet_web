@@ -1,17 +1,21 @@
+CREATE DATABASE BDD_ViensManger CHARACTER SET 'utf8';
+USE BDD_ViensManger;
+
 CREATE TABLE Utilisateur (
-    adresseMail  VARCHAR(30) NOT NULL,
+    adresseMail VARCHAR(50) NOT NULL,
     mdp VARCHAR(20) NOT NULL,
-    photo VARCHAR(100),
-    age SMALLINT UNSIGNED,
+    prenom VARCHAR(30) NOT NULL,
     nom VARCHAR(30) NOT NULL,
-    Description VARCHAR(200),
+    age SMALLINT UNSIGNED NOT NULL,
+    description VARCHAR(200),
+    numeroTel VARCHAR(15) NOT NULL,
     note SMALLINT UNSIGNED,
-    numeroTel VARCHAR(15) NOT NULL,		
+    photo VARCHAR(100),
     PRIMARY KEY (adresseMail)
 );
 
-CREATE TABLE Lieux (
-    idLieux SMALLINT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+CREATE TABLE Lieu(
+    idLieu SMALLINT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
     pays VARCHAR(40) NOT NULL,
     ville VARCHAR(40) NOT NULL,
     rue VARCHAR(40) NOT NULL,
@@ -25,71 +29,79 @@ CREATE TABLE Type (
     photo VARCHAR(100)
 );
 
-CREATE TABLE Repas (
-    idRepas SMALLINT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
-    description VARCHAR(200),
-    nbPlaces SMALLINT UNSIGNED NOT NULL,
-    date DATETIME NOT NULL,
-    Lieux SMALLINT UNSIGNED NOT NULL,
-    Organisateur VARCHAR(30) NOT NULL,
-    Type SMALLINT UNSIGNED NOT NULL,
-    FOREIGN KEY (Lieux)             
-    	REFERENCES Lieux (idLieux),       
-    FOREIGN KEY (Organisateur)             
-    	REFERENCES Utilisateur (adresseMail),       
-    FOREIGN KEY (Type)             
-    	REFERENCES Type (idType)
+CREATE TABLE Ambiance (
+    idAmbiance SMALLINT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    nom VARCHAR(50) NOT NULL
 );
 
-
+CREATE TABLE Repas (
+    idRepas SMALLINT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+	idLieuRepas SMALLINT UNSIGNED,
+    idOrganisateurRepas VARCHAR(50),
+	 idAmbianceRepas SMALLINT UNSIGNED,
+    idTypeRepas SMALLINT UNSIGNED,
+    nomRepas VARCHAR(130) NOT NULL,
+    description VARCHAR(200),
+    nbPlaces SMALLINT UNSIGNED NOT NULL,
+    prixRepas SMALLINT UNSIGNED NOT NULL,
+    date DATETIME NOT NULL,
+    FOREIGN KEY (idLieuRepas)
+    	REFERENCES Lieu(idLieu),
+    FOREIGN KEY (idOrganisateurRepas)
+    	REFERENCES Utilisateur(adresseMail),
+    FOREIGN KEY (idTypeRepas)
+    	REFERENCES Type(idType),
+    FOREIGN KEY (idAmbianceRepas)
+      REFERENCES Ambiance(idAmbiance)
+);
 
 CREATE TABLE Liste (
     idListe SMALLINT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
-    idInvite1 VARCHAR(30),
-    idInvite2 VARCHAR(30),  
-    idInvite3 VARCHAR(30),  
-    idInvite4 VARCHAR(30),  
-    idInvite5 VARCHAR(30),  
-    idInvite6 VARCHAR(30),
-    idInvite7 VARCHAR(30), 
-    idInvite8 VARCHAR(30),
-    idInvite9 VARCHAR(30),
-    idInvite10 VARCHAR(30),
-    idRepas SMALLINT UNSIGNED NOT NULL,         
-    FOREIGN KEY (idRepas)             
+    idRepas SMALLINT UNSIGNED NOT NULL,
+    idInvite1 VARCHAR(50),
+    idInvite2 VARCHAR(50),
+    idInvite3 VARCHAR(50),
+    idInvite4 VARCHAR(50),
+    idInvite5 VARCHAR(50),
+    idInvite6 VARCHAR(50),
+    idInvite7 VARCHAR(50),
+    idInvite8 VARCHAR(50),
+    idInvite9 VARCHAR(50),
+    idInvite10 VARCHAR(50),
+    FOREIGN KEY (idRepas)
     	REFERENCES Repas(idRepas),
-    FOREIGN KEY (idInvite1)             
-    	REFERENCES Utilisateur(adresseMail),        
-    FOREIGN KEY (idInvite2)             
-    	REFERENCES Utilisateur(adresseMail),        
-    FOREIGN KEY (idInvite3)             
-    	REFERENCES Utilisateur(adresseMail),          
-    FOREIGN KEY (idInvite4)             
-    	REFERENCES Utilisateur(adresseMail),         
-    FOREIGN KEY (idInvite5)             
-    	REFERENCES Utilisateur(adresseMail),         
-    FOREIGN KEY (idInvite6)             
-    	REFERENCES Utilisateur(adresseMail),        
-    FOREIGN KEY (idInvite7)             
-    	REFERENCES Utilisateur(adresseMail),        
-    FOREIGN KEY (idInvite8)             
-    	REFERENCES Utilisateur(adresseMail),         
-    FOREIGN KEY (idInvite9)             
-    	REFERENCES Utilisateur(adresseMail),          
-    FOREIGN KEY (idInvite10)             
+    FOREIGN KEY (idInvite1)
+    	REFERENCES Utilisateur(adresseMail),
+    FOREIGN KEY (idInvite2)
+    	REFERENCES Utilisateur(adresseMail),
+    FOREIGN KEY (idInvite3)
+    	REFERENCES Utilisateur(adresseMail),
+    FOREIGN KEY (idInvite4)
+    	REFERENCES Utilisateur(adresseMail),
+    FOREIGN KEY (idInvite5)
+    	REFERENCES Utilisateur(adresseMail),
+    FOREIGN KEY (idInvite6)
+    	REFERENCES Utilisateur(adresseMail),
+    FOREIGN KEY (idInvite7)
+    	REFERENCES Utilisateur(adresseMail),
+    FOREIGN KEY (idInvite8)
+    	REFERENCES Utilisateur(adresseMail),
+    FOREIGN KEY (idInvite9)
+    	REFERENCES Utilisateur(adresseMail),
+    FOREIGN KEY (idInvite10)
     	REFERENCES Utilisateur(adresseMail)
 );
 
-CREATE TABLE Allergies (
-    idAllergie SMALLINT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
-    Nom varchar(30)
+CREATE TABLE Allergie (
+    idAllergie SMALLINT UNSIGNED NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    nom VARCHAR(50)
 );
 
-CREATE TABLE  listeAllergies(
-    idAllergies SMALLINT,
-    idUtilisateur SMALLINT,
-    FOREIGN KEY (idAllergies)             
-    	REFERENCES Allergies(idAllergies), 
-    FOREIGN KEY (idUtilisateur)             
+CREATE TABLE UtilisateurAllergie(
+    idAllergie SMALLINT UNSIGNED NOT NULL,
+    idUtilisateur VARCHAR(50) NOT NULL,
+    FOREIGN KEY (idAllergie)
+    	REFERENCES Allergie(idAllergie),
+    FOREIGN KEY (idUtilisateur)
     	REFERENCES Utilisateur(adresseMail)
 );
