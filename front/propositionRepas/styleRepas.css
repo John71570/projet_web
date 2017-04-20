@@ -1,0 +1,66 @@
+#TitreFormulaire{
+    font-size: 3em;
+    text-align-last: center;
+    height: 100%;
+    text-align: center;
+}
+
+body {
+  font-family: "Roboto", Helvetica, Arial, sans-serif;
+  font-weight: 100;
+  font-size: 12px;
+  line-height: 30px;
+  color: #777;
+  background-image: url("RepasBackground.jpeg");
+ background-attachment: scroll;
+    background-position: center;
+}
+
+#DescriptionRepas{
+    width: 300px;
+    height: 2em;
+}
+
+.ConteneurFormulaireRepas {
+  max-width: 400px;
+  width: 100%;
+  margin: 0 auto;
+  background-color: azure;
+}
+
+.TitreSection{
+    text-align: center;
+    font-size: 2em;
+    width: 200px;
+}
+
+fieldset{
+    text-align: center;
+    height: 120%;
+    border-style: none;
+    
+}
+
+LabelSection{
+    border-style: dashed;
+}
+
+textarea{
+    width: 90%;
+    height: 6em;;
+    resize: none;
+}
+
+.ConditionGenerales{
+    text-align: center;
+    line-height: 1.3em;
+}
+
+.DeroulantRepas, #TitreRepas{
+    width: 80%;
+}
+
+#ValideFormulaire{
+    height: 2em;
+    width: 10em;
+}

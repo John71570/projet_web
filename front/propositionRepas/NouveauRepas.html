@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title> Viens Manger | Proposer un repas </title>
+        <link rel="stylesheet" href=styleRepas.css>
+    </head>
+
+    <body>
+
+        <div class="ConteneurFormulaireRepas">
+            <form id="FormulairePropositionRepas" action="/SoumissionRepas" method="post">
+
+                <fieldset>
+                <h2 id="TitreFormulaire">Proposition de Repas</h2>
+                </fieldset>
+
+                <fieldset>
+                    <label class="LabelSection">
+                        <span class="TitreSection">Titre du repas</span>
+                        <br>
+                        <input id="TitreRepas" name="TitreRepas" placeholder="Entrez le titre du repas" type="text" tabindex="1" required autofocus>
+                    </label>
+                </fieldset>
+
+                <fieldset>
+                    <label class="LabelSection">
+                        <span class="TitreSection">Type de repas</span>
+                        <br>
+                        <select class="DeroulantRepas" name="TypeRepas" size="1">
+                            <option value="1">A la bonne franquette</option>
+                            <option value="2">Fast-food</option>
+                            <option value="3">Elaboré</option>
+                            <option value="4">Spécialitée</option>
+                            <option value="5">Epicé</option>
+                        </select>
+                    </label>
+                </fieldset>
+
+                <fieldset>
+                    <label class="LabelSection">
+                        <span class="TitreSection">Ambiance</span>
+                        <br>
+                        <select class="DeroulantRepas" name="AmbianceRepas" size="1">
+                            <option value="1">Decouverte culinaire</option>
+                            <option value="2">Débatons autour d'un bon plat</option>
+                            <option value="3">On passe un bon moment</option>
+                            <option value="4">Ca decale en boite</option>
+                        </select>
+                    </label>
+                </fieldset>
+
+                <fieldset>
+                    <label class="LabelSection">
+                        <span class="TitreSection">Description</span>
+                        <br>
+                        <textarea name="DescriptionRepas"></textarea>
+                    </label>
+                </fieldset>
+
+                <fieldset>
+                    <label class="LabelSection">
+                        <span class="TitreSection">Lieu</span>
+                        <br>
+                        <input id="Lieu1" name="Pays" placeholder="Pays" type="text" required autofocus>
+                        <input id="Lieu2" name="Ville" placeholder="Ville" type="text" required autofocus>
+                        <input id="Lieu3" name="Rue" placeholder="Rue" type="text" required autofocus>
+                        <input id="Lieu4" name="Numero" placeholder="Numero" type="text" required autofocus>
+                    </label>
+                </fieldset>
+
+                <fieldset>
+                    <label class="LabelSection">
+                        <span class="TitreSection">Date</span>
+                        <br>
+                        <input id="Date" name="DateRepas" placeholder="2017/12/31 (Respectez le format)" type="date" required autofocus>
+                    </label>
+                </fieldset>
+
+
+                <fieldset>
+                    <label class="LabelSection">
+                        <span class="TitreSection">Nombre de convives</span>
+                        <br>
+                        <input name="NombreConviveRepas" type="number" min="2" max="50" required autofocus>
+                    </label>
+                </fieldset>
+
+                 <fieldset>
+                    <label class="LabelSection">
+                        <span class="TitreSection">Prix par convive</span>
+                        <br>
+                        <input name="PrixRepas" type="number" min="0" max="20" required autofocus>
+                    </label>
+                </fieldset>
+
+                <fieldset>
+                    <button name="ValideFormulaire" type="submit" id="ValideFormulaire" data-submit="...Envoi">Soumettre</button>
+                </fieldset>
+
+                <p class="ConditionGenerales">En cliquant sur "Soumettre", vous acceptez les conditions générales d'utilisations</p>
+
+            </form>
+        </div>
+
+    </body>
+</html>
