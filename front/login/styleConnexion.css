@@ -1,0 +1,132 @@
+body{
+    margin: 0 0 0 0;
+    font-family:fantasy;
+}
+
+h1{
+    font-size: 20px;
+}
+
+header{
+    display: inline-block;
+    overflow: hidden;
+    text-align: center;
+    width:100%;
+    height: 60px;
+    background-color: #5F54AC;
+    margin-bottom: 10px;
+    padding-top: 5px;
+    position: fixed;
+    top:0px;
+    left: 0px;
+    z-index: 10;
+}
+
+footer{
+    text-align: center;
+    width: 100%;
+    height: 100px;
+    background-color: bisque;
+    position:relative;
+    padding-top: 10px;    
+}
+
+#contenu{
+    width:100%;
+    position: absolute;
+    top:60px;
+}
+
+#Logo{
+    overflow: hidden;
+    width: 30%;
+    height: auto;
+    display: inline-block;
+    position: relative;
+    left:10px;
+}
+
+#ConnexionProfil{
+    overflow: hidden;
+    width: 60%;
+    height: 50px;
+    display: inline-block;
+    text-align: right;
+    position: relative;
+    left:10px;
+}
+
+.LConnexionProfil{
+    color: white;
+    text-decoration-line: none;
+    margin: 5px 10px 5px 10px;
+    font-family: "Garuda", sans-serif;
+    font-size: 1.2em;
+}
+
+.SECConnexion{
+    position:relative;
+    line-height: 50px;
+    border-radius: 4px;
+    text-align: center;
+    display: inline-block;
+    overflow: hidden;
+    width: 20%;
+    height: 100%;
+    background-color: navy;
+}
+
+#PageConnexion{
+    width:100%;
+    height: 800px;
+    text-align: center;
+    position: relative;
+}
+
+#BlocConnexion{
+    color:white;
+    overflow: hidden;
+    position: relative;
+    top:20%;
+    left:25%;
+    text-align: center;
+    width: 50%;
+    height: 300px;
+    line-height: 100px;
+    background-color: navy;
+}
+.login { 
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -150px 0 0 -150px;
+    width:300px;
+    height:300px;
+}
+.login h1 { 
+    color: navy; 
+    text-shadow: 0 0 10px rgba(0,0,0,0.3); 
+    letter-spacing:1px; 
+    text-align:center; 
+}
+
+input { 
+    width: 100%; 
+    margin-bottom: 10px; 
+    background: rgba(0,0,0,0.3);
+    border: none;
+    outline: none;
+    padding: 10px;
+    font-size: 13px;
+    color: #fff;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+    border: 1px solid rgba(0,0,0,0.3);
+    border-radius: 4px;
+    box-shadow: inset 0 -5px 45px rgba(100,100,100,0.2), 0 1px 1px rgba(255,255,255,0.2);
+    -webkit-transition: box-shadow .5s ease;
+    -moz-transition: box-shadow .5s ease;
+    -o-transition: box-shadow .5s ease;
+    -ms-transition: box-shadow .5s ease;
+    transition: box-shadow .5s ease;
+}
+input:focus { box-shadow: inset 0 -5px 45px rgba(100,100,100,0.4), 0 1px 1px rgba(255,255,255,0.2); }
